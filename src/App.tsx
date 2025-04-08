@@ -1,8 +1,10 @@
-import { BrowserRouter as Router, Route, Navigate, Routes } from 'react-router-dom';
-import { Login } from './pages/Login.jsx';
-import {Carros} from './pages/Carros.jsx';
+import React, { ReactNode } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Login from './pages/Login';
+import Carros from './pages/Carros';
 
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+// Componente para proteger rutas
+const ProtectedRoute = ({ children }: { children: ReactNode }) => {
   const token = localStorage.getItem('token');
   return token ? children : <Navigate to="/login" />;
 };
